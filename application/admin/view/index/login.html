@@ -1,0 +1,48 @@
+{include file="public/header" /}
+<script src="/static/admin/js/jquery-1.js" type="text/javascript"></script>
+<script src="/static/admin/js/login.js" type="text/javascript"></script>
+<script src="/static/admin/js/Particleground.js" type="text/javascript"></script>
+<link rel="stylesheet" href="/static/admin/css/adminlogin_style.css" type="text/css">
+<script>
+    $(document).ready(function() {
+        //粒子背景特效
+        $('body').particleground({
+            dotColor: '#fff',
+            lineColor: '#fff'
+        });
+    });
+</script>
+<dl class="admin_login">
+    <dt>
+        <strong>微信功能管理系统</strong>
+        <em>微信<a style="color:#ff6e7c;" href="https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1445241432" target="_blank">开放平台</a>手册</em>
+    </dt>
+    <!--<form name="login" id="login" method="post" action="{:url('admin/index/login')}" onsubmit="return CheckLogin(document.login);">-->
+    <form name="login" id="login" method="post" action="{:url('admin/login/login')}">
+        <input name="enews" value="login" type="hidden">
+        <dd class="user_icon">
+            <input placeholder="管理员" name="username" id="username" class="login_txtbx" type="text">
+        </dd>
+        <dd class="pwd_icon">
+            <input placeholder="密码" name="password" id="password" class="login_txtbx" type="password">
+        </dd>
+        <dd class="loginauth_icon">
+            <input placeholder="认证码" name="loginauth" id="loginauth" class="login_txtbx" type="password">
+        </dd>
+        <dd>
+            <input value="立即登录" name="sm1" onclick="this.form.submit();" class="submit_btn" type="submit">
+        </dd>
+        <input name="empirecmskey1" id="empirecmskey1" value="" type="hidden">
+
+    </form>
+    <dd>
+        <p>2017-2018 anglyZhang 版权所有</p>
+        <p>京公网安备 11010802020116号</p>
+    </dd>
+</dl>
+<script>
+    if(document.login.equestion.value==0)
+    {
+        showanswer.style.display='none';
+    }
+</script>
