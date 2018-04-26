@@ -43,11 +43,11 @@
                 <span class="x-red">*</span>角色
             </label>
             <div class="layui-input-inline">
-              <select name="role">
+              <select name="role_id">
                 <option value="0">请选择角色</option>
-                <option value="1">超级管理员</option>
-                <option value="2">编辑人员</option>
-                <option value="3">问题维护</option>
+                  {volist name='rolelist' id='vo'}
+                <option value="{$vo.id}">{$vo.name}</option>
+                  {/volist}
               </select>
             </div>
         </div>
@@ -118,7 +118,9 @@
                           var index = parent.layer.getFrameIndex(window.name);
                           //关闭当前frame
                           parent.layer.close(index);
+                          window.parent.location.reload();
                       });
+
                   }else{
                         layer.alert(res.msg, {icon: 5})
 

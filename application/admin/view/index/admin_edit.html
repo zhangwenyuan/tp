@@ -44,11 +44,11 @@
                 <span class="x-red">*</span>角色
             </label>
             <div class="layui-input-inline">
-              <select name="role">
+              <select name="role_id">
                 <option value="">请选择角色</option>
-                <option value="超级管理员" selected="">超级管理员</option>
-                <option value="编辑人员">编辑人员</option>
-                <option value="问题维护">问题维护</option>
+                  {volist name='rolelist' id='vo'}
+                  <option value="{$vo.id}" {if $userinfo['role_id'] == $vo['id']}selected=""{/if}>{$vo.name}</option>
+                  {/volist}
               </select>
             </div>
         </div>
@@ -92,7 +92,7 @@
                           var index = parent.layer.getFrameIndex(window.name);
                           //关闭当前frame
                           parent.layer.close(index);
-                          window.location.href="{:url('login/admin_list')}";
+                          window.parent.location.reload();
                       });
                   }else{
                       layer.alert(res.msg, {icon: 5})

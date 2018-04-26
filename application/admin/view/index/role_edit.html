@@ -2,12 +2,13 @@
 {include file="public/common" /}
 <div class="x-body">
     <form action="" method="post" class="layui-form layui-form-pane">
+        <input type="hidden" name="saveid" value="{$roleinfo['id']}">
         <div class="layui-form-item">
             <label for="name" class="layui-form-label">
                 <span class="x-red">*</span>角色名
             </label>
             <div class="layui-input-inline">
-                <input type="text" id="name" name="rolename" required="" lay-verify="required"
+                <input type="text" id="name" name="rolename" required="" lay-verify="required" value="{$roleinfo['name']}"
                 autocomplete="off" class="layui-input">
             </div>
         </div>
@@ -21,20 +22,20 @@
                     <th width="100px;">子级模块</th>
                 </tr>
                 <tbody>
-                    {volist name="menu_list" id='vo'}
-                    <tr>
-                        <td style="background: beige;" width="70px;">
-                            <input type="checkbox" name="fa_checkid" lay-skin="primary" value="{$vo.id}"><br><p style="color: red;font-weight: bold;margin-left: 10px;">{$vo.menu_name}</p>
-                        </td>
-                        {volist name="$vo['son']" id='voe'}
-                        <td>
-                            <div class="layui-input-block">
-                                <input name="checkid" type="checkbox" value="{$voe.id}"><br/> <span style="margin-left: 10px;">{$voe.menu_name}</span>
-                            </div>
-                        </td>
-                        {/volist}
-                    </tr>
+                {volist name="menu_list" id='vo'}
+                <tr>
+                    <td style="background: beige;" width="70px;">
+                        <input type="checkbox" name="fa_checkid" lay-skin="primary" value="{$vo.id}"><br><p style="color: red;font-weight: bold;margin-left: 10px;">{$vo.menu_name}</p>
+                    </td>
+                    {volist name="$vo['son']" id='voe'}
+                    <td>
+                        <div class="layui-input-block">
+                            <input name="checkid" type="checkbox" value="{$voe.id}"><br/> <span style="margin-left: 10px;">{$voe.menu_name}</span>
+                        </div>
+                    </td>
                     {/volist}
+                </tr>
+                {/volist}
                 </tbody>
             </table>
         </div>
@@ -43,22 +44,25 @@
                 描述
             </label>
             <div class="layui-input-block">
-                <textarea placeholder="请输入内容" id="desc" name="desc" class="layui-textarea"></textarea>
+                <textarea placeholder="请输入内容" id="desc" name="desc" class="layui-textarea">{$roleinfo['desc']}</textarea>
             </div>
         </div>
         <div class="layui-form-item">
-        <button class="layui-btn" lay-submit="" lay-filter="add">增加</button>
+        <button class="layui-btn" lay-submit="" lay-filter="save">保存</button>
       </div>
     </form>
 </div>
+<script src="./lib/layui/layui.js" charset="utf-8">
+</script>
+<script src="./js/x-layui.js" charset="utf-8">
+</script>
 <script>
-layui.use(['form','layer'], function(){
+    layui.use(['form','layer'], function(){
         $ = layui.jquery;
       var form = layui.form()
       ,layer = layui.layer;
-
       //监听提交
-      form.on('submit(add)', function(data){
+      form.on('submit(save)', function(data){
           var standards = '';
           var fstandards = '';
           var i= 0;
@@ -79,12 +83,12 @@ layui.use(['form','layer'], function(){
               fstandards += ',' + $(this).val();
               j++;
           });
-          console.log(fstandards)
           data.field.checkid = standards;
           data.field.fa_checkid = fstandards;
+
           $.ajax({
               type: 'POST',
-              url: "{:url('login/role_add')}",
+              url: "{:url('login/role_edit')}",
               dataType: 'JSON',
               data: data.field,
               success: function (res) { //返回json结果
@@ -103,12 +107,11 @@ layui.use(['form','layer'], function(){
                   }
               }
           });
-
-              return false;
+        return false;
       });
 
 
-});
+    });
 </script>
 <script>
 var _hmt = _hmt || [];
@@ -119,3 +122,5 @@ var _hmt = _hmt || [];
   s.parentNode.insertBefore(hm, s);
 })();
 </script>
+
+</html>

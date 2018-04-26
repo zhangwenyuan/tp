@@ -53,7 +53,7 @@
             <td>{$vo.name}</td>
             <td >{$vo.phone}</td>
             <td >{$vo.email}</td>
-            <td >超级管理员</td>
+            <td >{$vo.role_name}</td>
             <td>{$vo.create_time|date="Y-m-d H:i:s"}</td>
             {if condition="$vo.is_open eq 1"}
             <td class="td-status"><span class="layui-btn layui-btn-normal layui-btn-mini">已启用</span></td>
