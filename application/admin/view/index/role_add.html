@@ -67,19 +67,20 @@ layui.use(['form','layer'], function(){
               // 遍历name=standard的多选框
               if(i ==0){
                   standards = $(this).val();
+              }else{
+                  standards += ',' + $(this).val();
               }
-              standards += ',' + $(this).val();
               i++;
           });
           $("input:checkbox[name='fa_checkid']:checked").each(function() {
               // 遍历name=standard的多选框
               if(j ==0){
                   fstandards = $(this).val();
+              }else{
+                  fstandards += ',' + $(this).val();
               }
-              fstandards += ',' + $(this).val();
               j++;
           });
-          console.log(fstandards)
           data.field.checkid = standards;
           data.field.fa_checkid = fstandards;
           $.ajax({

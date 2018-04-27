@@ -34,12 +34,15 @@
         <dd class="pwd_icon">
             <input placeholder="密码" name="password" id="password" class="login_txtbx" type="password">
         </dd>
-        <dd class="loginauth_icon">
-            <input placeholder="认证码" name="loginauth" id="loginauth" class="login_txtbx" type="password">
+        <dd>
+            <dl style="float: left;display: block;"><input placeholder="请输入验证码" name="ver_code" class="login_txtbx" style="width: 162px;" type="text"></dl>
+            <dl style="width: 110px;float: left;"><img style="width: 115px;height: 42px;" id="captcha_img" src="{:captcha_src()}" alt="captcha" onclick="refreshVerify()"/></dl>
+
         </dd>
         <dd>
             <input value="立即登录" name="sm1" onclick="this.form.submit();" class="submit_btn" type="submit">
         </dd>
+        <a href="javascript:refreshVerify()">点击刷新</a>
         <input name="empirecmskey1" id="empirecmskey1" value="" type="hidden">
 
     </form>
@@ -49,6 +52,10 @@
     </dd>
 </dl>
 <script>
+    function refreshVerify() {
+        var ts = Date.parse(new Data())/100;
+        $('#captcha_img').attr('src','/captcha?id='.ts);
+    }
     if(document.login.equestion.value==0)
     {
         showanswer.style.display='none';

@@ -151,7 +151,7 @@ class User extends Model{
             return false;
     }
     /**
-     * 根据ID查询角色的信息
+     * 根据用户ID查询角色的信息
      * return array()
      * */
     public function getRoleInfo($id){
@@ -222,6 +222,35 @@ class User extends Model{
             return true;
         else
             return false;
+    }
+
+    /**
+     * 修改角色权限
+     * param $roleinsertID 角色id
+     * return true/fasle
+     * */
+    public function SaveRoleAccess($roleinsertID){
+        $_data['access_str'] = isset($_POST['checkid'])?$_POST['checkid']:'';
+        $_data['access_id'] = isset($_POST['fa_checkid'])?$_POST['fa_checkid']:'';
+        $_data['role_id'] = $roleinsertID;
+        $_data['update_time'] = time();
+
+        $insert_res = Db::name('role_access')->where('role_id',$roleinsertID)->update($_data);
+        if($insert_res)
+
+            return true;
+        else
+            return false;
+    }
+    /**
+     * 通过角色ID查询权限角色表是否已存在
+     * param $id  角色id
+     * return array()
+     * */
+    public function getRoleAccess($id){
+
+        $roleinfo = Db::name('role_access')->where('role_id',$id)->find();
+        return $roleinfo;
     }
 
 }

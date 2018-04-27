@@ -2,16 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eeb31a10-342a-4fbb-92da-b055d3ff5153" name="默认的" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/admin/model/Login.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/php.xml" afterPath="$PROJECT_DIR$/.idea/php.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/tp.iml" afterPath="$PROJECT_DIR$/.idea/tp.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/controller/Index.php" afterPath="$PROJECT_DIR$/application/admin/controller/Index.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/controller/Login.php" afterPath="$PROJECT_DIR$/application/admin/controller/Login.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/model/Menu.php" afterPath="$PROJECT_DIR$/application/admin/model/Menu.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/model/User.php" afterPath="$PROJECT_DIR$/application/admin/model/User.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/view/index/admin_add.html" afterPath="$PROJECT_DIR$/application/admin/view/index/admin_add.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/view/index/admin_edit.html" afterPath="$PROJECT_DIR$/application/admin/view/index/admin_edit.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/view/index/admin_list.html" afterPath="$PROJECT_DIR$/application/admin/view/index/admin_list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/view/index/admin_role.html" afterPath="$PROJECT_DIR$/application/admin/view/index/admin_role.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/view/index/login.html" afterPath="$PROJECT_DIR$/application/admin/view/index/login.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/view/index/role_add.html" afterPath="$PROJECT_DIR$/application/admin/view/index/role_add.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/view/index/role_edit.html" afterPath="$PROJECT_DIR$/application/admin/view/index/role_edit.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.json" afterPath="$PROJECT_DIR$/composer.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/composer.lock" afterPath="$PROJECT_DIR$/composer.lock" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -28,8 +31,8 @@
       <file leaf-file-name="Login.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/admin/controller/Login.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="372">
-              <caret line="201" column="18" lean-forward="true" selection-start-line="201" selection-start-column="18" selection-end-line="201" selection-end-column="18" />
+            <state relative-caret-position="342">
+              <caret line="24" column="31" lean-forward="true" selection-start-line="24" selection-start-column="31" selection-end-line="24" selection-end-column="31" />
               <folding>
                 <element signature="e#39#55#0#PHP" expanded="true" />
               </folding>
@@ -37,11 +40,21 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="Captcha.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/topthink/think-captcha/src/Captcha.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="375">
+              <caret line="33" column="18" lean-forward="true" selection-start-line="33" selection-start-column="18" selection-end-line="33" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/admin/model/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="416">
-              <caret line="160" column="5" lean-forward="true" selection-start-line="160" selection-start-column="5" selection-end-line="160" selection-end-column="5" />
+            <state relative-caret-position="380">
+              <caret line="193" column="33" lean-forward="false" selection-start-line="193" selection-start-column="20" selection-end-line="193" selection-end-column="33" />
               <folding>
                 <element signature="e#34#50#0#PHP" expanded="true" />
               </folding>
@@ -49,50 +62,49 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="role_add.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/admin/view/index/role_add.html">
+      <file leaf-file-name="Menu.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/admin/model/Menu.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="623">
-              <caret line="83" column="45" lean-forward="true" selection-start-line="61" selection-start-column="10" selection-end-line="83" selection-end-column="45" />
-              <folding>
-                <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#form#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#form#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#div#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#form#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="540">
+              <caret line="42" column="26" lean-forward="false" selection-start-line="42" selection-start-column="26" selection-end-line="42" selection-end-column="26" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="role_edit.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/admin/view/index/role_edit.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="334">
-              <caret line="62" column="27" lean-forward="false" selection-start-line="62" selection-start-column="27" selection-end-line="62" selection-end-column="27" />
-              <folding>
-                <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#form#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#form#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#div#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#form#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="menu.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/admin/view/public/menu.html">
+      <file leaf-file-name="Login.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/admin/model/Login.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="195">
-              <caret line="13" column="39" lean-forward="false" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="39" />
+              <caret line="13" column="65" lean-forward="false" selection-start-line="13" selection-start-column="65" selection-end-line="13" selection-end-column="65" />
+              <folding>
+                <element signature="e#33#49#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/admin/controller/Index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="13" column="5" lean-forward="false" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="admin_role.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/admin/view/index/admin_role.html">
+      <file leaf-file-name="login.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/admin/view/index/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="411">
-              <caret line="97" column="43" lean-forward="false" selection-start-line="97" selection-start-column="35" selection-end-line="97" selection-end-column="43" />
-              <folding />
+            <state relative-caret-position="415">
+              <caret line="49" column="40" lean-forward="true" selection-start-line="49" selection-start-column="40" selection-end-line="49" selection-end-column="40" />
+              <folding>
+                <element signature="n#style#0;n#dl#0;n#dd#2;n#form#0;n#dl#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#input#0;n#dl#0;n#dd#2;n#form#0;n#dl#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#dl#1;n#dd#2;n#form#0;n#dl#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#dl#1;n#dd#2;n#form#0;n#dl#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -108,9 +120,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>admin_r</find>
-      <find>admin_add</find>
-      <find>lay-s</find>
       <find>admin_del</find>
       <find>admin_stop</find>
       <find>LAY_demorange_s</find>
@@ -119,10 +128,8 @@
       <find>admin</find>
       <find>admin_edit</find>
       <find>Administration_List</find>
-      <find>get</find>
       <find>_save</find>
       <find>checkuser</find>
-      <find>getRoleInfo</find>
       <find>getRoleUserId</find>
       <find>role_list</find>
       <find>user_save</find>
@@ -132,12 +139,17 @@
       <find>checkid</find>
       <find>fa_checkid</find>
       <find>add_role_user</find>
-      <find>InsertRoleAccess</find>
       <find>rule_del</find>
       <find>ins</find>
       <find>del_roledel_role</find>
       <find>del_role</find>
       <find>role_add</find>
+      <find>InsertRoleAccess</find>
+      <find>SaveRoleAccess</find>
+      <find>get</find>
+      <find>getRoleInfo</find>
+      <find>user_r</find>
+      <find>menulist</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$</dir>
@@ -163,7 +175,6 @@
         <option value="$PROJECT_DIR$/config/app.php" />
         <option value="$PROJECT_DIR$/config/database.php" />
         <option value="$PROJECT_DIR$/application/admin/view/index/test.html" />
-        <option value="$PROJECT_DIR$/application/admin/controller/Index.php" />
         <option value="$PROJECT_DIR$/application/index/controller/Index.php" />
         <option value="$PROJECT_DIR$/application/admin/view/public/header.html" />
         <option value="$PROJECT_DIR$/application/admin/view/index/index.html" />
@@ -176,17 +187,20 @@
         <option value="$PROJECT_DIR$/application/admin/view/index/admin_rule.html" />
         <option value="$PROJECT_DIR$/application/admin/model/user.php" />
         <option value="$PROJECT_DIR$/application/admin/model/menu.php" />
-        <option value="$PROJECT_DIR$/application/admin/model/Menu.php" />
         <option value="$PROJECT_DIR$/application/common.php" />
-        <option value="$PROJECT_DIR$/application/admin/view/index/login.html" />
         <option value="$PROJECT_DIR$/application/admin/view/index/admin_edit.html" />
         <option value="$PROJECT_DIR$/application/admin/view/index/admin_add.html" />
         <option value="$PROJECT_DIR$/application/admin/view/index/admin_list.html" />
         <option value="$PROJECT_DIR$/application/admin/view/index/admin_role.html" />
         <option value="$PROJECT_DIR$/application/admin/view/index/role_add.html" />
-        <option value="$PROJECT_DIR$/application/admin/model/User.php" />
-        <option value="$PROJECT_DIR$/application/admin/controller/Login.php" />
         <option value="$PROJECT_DIR$/application/admin/view/index/role_edit.html" />
+        <option value="$PROJECT_DIR$/application/admin/controller/Index.php" />
+        <option value="$PROJECT_DIR$/application/admin/model/Login.php" />
+        <option value="$PROJECT_DIR$/application/admin/model/User.php" />
+        <option value="$PROJECT_DIR$/application/admin/model/Menu.php" />
+        <option value="$PROJECT_DIR$/application/admin/controller/Login.php" />
+        <option value="$PROJECT_DIR$/vendor/topthink/think-captcha/src/Captcha.php" />
+        <option value="$PROJECT_DIR$/application/admin/view/index/login.html" />
       </list>
     </option>
   </component>
@@ -207,6 +221,7 @@
     <include_path>
       <path value="$PROJECT_DIR$/vendor/composer" />
       <path value="$PROJECT_DIR$/vendor/topthink/think-installer" />
+      <path value="$PROJECT_DIR$/vendor/topthink/think-captcha" />
     </include_path>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
@@ -245,6 +260,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -260,88 +276,44 @@
             <path>
               <item name="tp" type="b2602c69:ProjectViewProjectNode" />
               <item name="tp" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="extend" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="tp" type="b2602c69:ProjectViewProjectNode" />
               <item name="tp" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="controller" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="route" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="tp" type="b2602c69:ProjectViewProjectNode" />
               <item name="tp" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="model" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="vendor" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="tp" type="b2602c69:ProjectViewProjectNode" />
               <item name="tp" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="view" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="vendor" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="topthink" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="tp" type="b2602c69:ProjectViewProjectNode" />
               <item name="tp" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="view" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="index" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="vendor" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="topthink" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="think-captcha" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="tp" type="b2602c69:ProjectViewProjectNode" />
               <item name="tp" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="view" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="public" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="tp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tp" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="index" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="tp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tp" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="index" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="controller" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="tp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tp" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="public" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="tp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tp" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="public" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="static" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="tp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tp" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="public" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="static" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="tp" type="b2602c69:ProjectViewProjectNode" />
-              <item name="tp" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="thinkphp" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="vendor" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="topthink" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="think-captcha" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -387,18 +359,18 @@
       <workItem from="1524446928213" duration="20424000" />
       <workItem from="1524534571747" duration="20015000" />
       <workItem from="1524619645984" duration="18472000" />
-      <workItem from="1524706627031" duration="20035000" />
+      <workItem from="1524706627031" duration="20191000" />
+      <workItem from="1524793336033" duration="14187000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81809000" />
+    <option name="totallyTimeSpent" value="96152000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25751072" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26108727" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329602" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -429,20 +401,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/config/log.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="21" column="14" lean-forward="true" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/template.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="23" column="29" lean-forward="true" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/trace.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -557,17 +515,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/admin/model/Menu.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="29" lean-forward="true" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
-          <folding>
-            <element signature="e#6#94#0#PHP" expanded="false" />
-            <element signature="e#123#139#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/thinkphp/library/think/Request.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2897">
@@ -643,32 +590,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/admin/view/index/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="30" column="30" lean-forward="true" selection-start-line="30" selection-start-column="30" selection-end-line="30" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/admin/controller/Index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="18" column="1" lean-forward="true" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/admin/view/index/admin_cate.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="68" column="20" lean-forward="true" selection-start-line="68" selection-start-column="20" selection-end-line="68" selection-end-column="20" />
-          <folding>
-            <marker date="1524549416353" expanded="true" signature="4045:4065" ph="..." />
-            <marker date="1524549416353" expanded="true" signature="4089:4097" ph="..." />
-            <marker date="1524549416353" expanded="true" signature="4174:4194" ph="..." />
-            <marker date="1524549416353" expanded="true" signature="4218:4226" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -676,7 +601,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="355">
           <caret line="121" column="25" lean-forward="true" selection-start-line="121" selection-start-column="25" selection-end-line="121" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -710,7 +634,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="318">
           <caret line="94" column="58" lean-forward="true" selection-start-line="94" selection-start-column="26" selection-end-line="94" selection-end-column="58" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -718,10 +641,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="22" column="21" lean-forward="true" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#i#0;n#a#0;n#li#2;n#ul#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -729,7 +648,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="13" column="25" lean-forward="false" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -745,22 +663,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="756">
           <caret line="57" column="45" lean-forward="true" selection-start-line="57" selection-start-column="45" selection-end-line="57" selection-end-column="45" />
-          <folding>
-            <element signature="n#style#0;n#a#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#i#0;n#a#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#form#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#form#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#3;n#div#0;n#div#0;n#form#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#xblock#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#td#9;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#1;n#td#9;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#2;n#td#9;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#3;n#td#9;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#!!top" expanded="true" />
-            <marker date="1524714427326" expanded="true" signature="6459:6479" ph="..." />
-            <marker date="1524714427326" expanded="true" signature="6565:6573" ph="..." />
-            <marker date="1524714427326" expanded="true" signature="7475:7495" ph="..." />
-            <marker date="1524714427326" expanded="true" signature="7580:7588" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -768,11 +670,29 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="619">
           <caret line="127" column="21" lean-forward="false" selection-start-line="127" selection-start-column="13" selection-end-line="127" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/admin/view/index/role_edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="40" lean-forward="false" selection-start-line="21" selection-start-column="40" selection-end-line="21" selection-end-column="40" />
           <folding>
-            <marker date="1524549438921" expanded="true" signature="4048:4068" ph="..." />
-            <marker date="1524549438921" expanded="true" signature="4092:4100" ph="..." />
-            <marker date="1524549438921" expanded="true" signature="4178:4198" ph="..." />
-            <marker date="1524549438921" expanded="true" signature="4222:4230" ph="..." />
+            <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#form#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#form#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#form#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/admin/view/index/role_add.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="451">
+          <caret line="82" column="13" lean-forward="false" selection-start-line="82" selection-start-column="13" selection-end-line="82" selection-end-column="13" />
+          <folding>
+            <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#form#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#form#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#form#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -793,46 +713,69 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/admin/controller/Index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="13" column="5" lean-forward="false" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/admin/model/Login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="65" lean-forward="false" selection-start-line="13" selection-start-column="65" selection-end-line="13" selection-end-column="65" />
+          <folding>
+            <element signature="e#33#49#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/admin/model/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="160" column="5" lean-forward="true" selection-start-line="160" selection-start-column="5" selection-end-line="160" selection-end-column="5" />
+        <state relative-caret-position="380">
+          <caret line="193" column="33" lean-forward="false" selection-start-line="193" selection-start-column="20" selection-end-line="193" selection-end-column="33" />
           <folding>
             <element signature="e#34#50#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/admin/model/Menu.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="42" column="26" lean-forward="false" selection-start-line="42" selection-start-column="26" selection-end-line="42" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/admin/controller/Login.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="201" column="18" lean-forward="true" selection-start-line="201" selection-start-column="18" selection-end-line="201" selection-end-column="18" />
+        <state relative-caret-position="342">
+          <caret line="24" column="31" lean-forward="true" selection-start-line="24" selection-start-column="31" selection-end-line="24" selection-end-column="31" />
           <folding>
             <element signature="e#39#55#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/admin/view/index/role_add.html">
+    <entry file="file://$PROJECT_DIR$/vendor/topthink/think-captcha/src/Captcha.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="623">
-          <caret line="83" column="45" lean-forward="true" selection-start-line="61" selection-start-column="10" selection-end-line="83" selection-end-column="45" />
-          <folding>
-            <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#form#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#form#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#form#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="375">
+          <caret line="33" column="18" lean-forward="true" selection-start-line="33" selection-start-column="18" selection-end-line="33" selection-end-column="18" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/admin/view/index/role_edit.html">
+    <entry file="file://$PROJECT_DIR$/application/admin/view/index/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="62" column="27" lean-forward="false" selection-start-line="62" selection-start-column="27" selection-end-line="62" selection-end-column="27" />
+        <state relative-caret-position="415">
+          <caret line="49" column="40" lean-forward="true" selection-start-line="49" selection-start-column="40" selection-end-line="49" selection-end-column="40" />
           <folding>
-            <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#form#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#form#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#form#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#dl#0;n#dd#2;n#form#0;n#dl#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#dl#0;n#dd#2;n#form#0;n#dl#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#dl#1;n#dd#2;n#form#0;n#dl#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#dl#1;n#dd#2;n#form#0;n#dl#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

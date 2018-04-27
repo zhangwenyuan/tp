@@ -12,8 +12,33 @@ class Login extends Controller
      * 主页
      * */
     public function login(){
+        # ----验证登录用户密码 start
+        $username = trim($_POST['username'])?trim($_POST['username']):$this->error('用户名不能为空');
+        $pwd = trim($_POST['password'])?trim($_POST['password']):$this->error('密码不能为空');
+        $userinfo = model('login');
+        $checkuser = $userinfo->checkUserName($username);
+        if($checkuser['pwd'] != md5($pwd.$checkuser['salt'])){
+            $this->error('密码错误，请重新输入~');
+        }
+        $_SESSION['userinfo'] = $checkuser;
+        # ----验证 end
         $_menu = model('menu');
-        $menu_list = $_menu->menulist();
+        if($checkuser['is_admin'] ==1){
+
+            $menu_list = $_menu->menulist();
+        }else{
+            # 开始查询该用户相应的菜单权限 start
+            # 1) 根据用户id 查询角色id
+            $role = model('user');
+            $roleid = $role->getRoleUserId($checkuser['id']);
+            # 2) 根据角色id 查询相应的权限id
+            $role_access = $role->getRoleAccess($roleid);
+            $access_id = explode(',',$role_access['access_id']);
+            $access_str = explode(',',$role_access['access_str']);
+            # 3) 根据权限的id 查询相应的菜单以及自己目录
+            $menu_list = $_menu-> powerMenu($access_id,$access_str);
+            # 菜单权限end
+        }
         $this->assign('menu_list',$menu_list);
         return view('index/index');
     }
@@ -197,7 +222,14 @@ class Login extends Controller
             $_data['name'] = isset($_POST['rolename'])?$_POST['rolename']:'';
             $_data['desc'] = isset($_POST['desc'])?$_POST['desc']:'';
             $_data['update_time'] = time();
-            if($usermodel->role_save($_data,$_POST['saveid'])){
+            if($usermodel->role_save($_data,$_REQUEST['saveid'])){
+                if($usermodel->getRoleAccess($_REQUEST['saveid'])){
+
+                    $usermodel->SaveRoleAccess($_REQUEST['saveid']);
+                }else{
+
+                    $usermodel->InsertRoleAccess($_REQUEST['saveid']);
+                }
                 return exitMsg(200,'角色修改成功~');
             }else{
                 return exitMsg(201,'角色失败，请重新提交~');
@@ -207,8 +239,10 @@ class Login extends Controller
         $saveinfo = model('user');
         $roleinfo = $saveinfo->getRoleInfo($saveid);
         $menu_list = $menumodel->menulist();
-        $this->assign('menu_list',$menu_list);
-        $this->assign('roleinfo',$roleinfo);
+        $selected = $saveinfo->getRoleAccess($saveid);
+        $selected_arr['access_id'] = explode(',',$selected['access_id']);
+        $selected_arr['access_str'] = explode(',',$selected['access_str']);
+        $this->assign(['roleinfo'=>$roleinfo,'selected_arr'=>$selected_arr,'menu_list'=>$menu_list]);
         return view('index/role_edit');
     }
 

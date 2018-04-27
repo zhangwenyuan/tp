@@ -12,8 +12,5 @@ class Index extends Controller
 
         return view('login');
     }
-//    public function welcome(){
-//
-//        return view('index/welcome');
-//    }
+
 }

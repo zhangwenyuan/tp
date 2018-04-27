@@ -25,12 +25,12 @@
                 {volist name="menu_list" id='vo'}
                 <tr>
                     <td style="background: beige;" width="70px;">
-                        <input type="checkbox" name="fa_checkid" lay-skin="primary" value="{$vo.id}"><br><p style="color: red;font-weight: bold;margin-left: 10px;">{$vo.menu_name}</p>
+                        <input type="checkbox" name="fa_checkid" lay-skin="primary" {if in_array($vo.id,$selected_arr['access_id']) } checked="checked" {/if}value="{$vo.id}"><br><p style="color: red;font-weight: bold;margin-left: 10px;">{$vo.menu_name}</p>
                     </td>
                     {volist name="$vo['son']" id='voe'}
                     <td>
                         <div class="layui-input-block">
-                            <input name="checkid" type="checkbox" value="{$voe.id}"><br/> <span style="margin-left: 10px;">{$voe.menu_name}</span>
+                            <input name="checkid" type="checkbox" {if in_array($voe.id,$selected_arr['access_str']) } checked="checked" {/if} value="{$voe.id}"><br/> <span style="margin-left: 10px;">{$voe.menu_name}</span>
                         </div>
                     </td>
                     {/volist}
@@ -71,21 +71,22 @@
               // 遍历name=standard的多选框
               if(i ==0){
                   standards = $(this).val();
+              }else{
+                  standards += ',' + $(this).val();
               }
-              standards += ',' + $(this).val();
               i++;
           });
           $("input:checkbox[name='fa_checkid']:checked").each(function() {
               // 遍历name=standard的多选框
               if(j ==0){
                   fstandards = $(this).val();
+              }else{
+                fstandards += ',' + $(this).val();
               }
-              fstandards += ',' + $(this).val();
               j++;
           });
           data.field.checkid = standards;
           data.field.fa_checkid = fstandards;
-
           $.ajax({
               type: 'POST',
               url: "{:url('login/role_edit')}",
