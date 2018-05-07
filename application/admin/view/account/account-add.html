@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+{include file="public/common" /}
+<link href="/static/admin/css/bootstrap-grid.min.css" rel="stylesheet">
+<link href="/static/admin/css/addaccount.css" rel="stylesheet">
+
+<div class="x-nav">
+    <span class="layui-breadcrumb">
+      <a><cite>首页</cite></a>
+      <a><cite>公众号管理</cite></a>
+      <a><cite>添加公众号</cite></a>
+    </span>
+    <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right"  href="javascript:location.replace(location.href);" title="刷新"><i class="layui-icon" style="line-height:30px">ဂ</i></a>
+</div>
+<div class="demo">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-sm-6">
+                <div class="pricingTable">
+                    <h3 class="title">添加公众号</h3>
+                    <div class="price-value">手动
+                        <span class="month">Manual</span>
+                    </div>
+                    <ul class="pricing-content">
+                        <li>① 手动绑定需同步微信接口</li>
+                        <li>② 获取appid和appsecret</li>
+                        <li>③ 绑定到微信后台绑定成功</li>
+                        <li>④ 服务器配置接口绑定到微信后台</li>
+                        <li>切记:绑定过程中一定要注意保持接口参数一致</li>
+                    </ul>
+
+                    <a href="{:url('account/post_step')}" class="pricingTable-signup red"><span>添 加</span></a>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6">
+                <div class="pricingTable">
+                    <h3 class="title">添加公众号</h3>
+                    <div class="price-value">授权
+                        <span class="month">authorize</span>
+                    </div>
+                    <ul class="pricing-content">
+                        <li>授权登录需认证微信开放平台和全网发布</li>
+                        <li>认证微信开放平台和全网发布教程</li>
+                        <li><a href="">开放平台设置</a></li>
+                        <li><a target="_blank" href="https://open.weixin.qq.com/">微信开放平台</a></li>
+                        <li>20 Domains</li>
+                    </ul>
+                    <a href="#" class="pricingTable-signup red"><span>授 权</span></a>
+                </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6">
+                <div class="pricingTable">
+                    <h3 class="title">公告</h3>
+                    <div class="price-value">微信快链
+                        <span class="month">link</span>
+                    </div>
+                    <ul class="pricing-content">
+                        <li><a target="_blank" href="https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1445241432">开放平台</a></li>
+                        <li><a target="_blank" href="https://pay.weixin.qq.com/wiki/doc/api/index.html">支付文档</a></li>
+                        <li><a target="_blank" href="https://pay.weixin.qq.com/wiki/doc/api/tools/cash_coupon.php?chapter=13_1">微信红包</a></li>
+                        <li><a target="_blank" href="https://open.weixin.qq.com/">第三方开放平台</a></li>
+                        <li><a target="_blank" href="https://www.baidu.com/">百度</a></li>
+                    </ul>
+                    <a target="_blank" class="pricingTable-signup red" href="http://www.tp.com"><span>主页</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
