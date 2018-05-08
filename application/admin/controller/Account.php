@@ -17,7 +17,8 @@ class Account extends Controller
 
     //公众号列表
     public function account_list(){
-        echo "公众号列表";die;
+
+        return view('account-list');
     }
 
     public function account_add(){
@@ -26,7 +27,6 @@ class Account extends Controller
     }
     //新增手动公众号
     public function post_step(){
-
         if(!empty($_POST)){
             $data['name'] = $_POST['acc_name'];
             $data['desc'] = $_POST['desc'];
@@ -35,9 +35,18 @@ class Account extends Controller
             $data['level'] = $_POST['level'];
             $data['key'] = $_POST['key'];
             $data['secret'] = $_POST['secret'];
-//            $data['qr_img'] = $_FILES['h_qr'];
-            $data['head_img'] = $this->file_upload($_FILES['h_img']);
-
+            if($_FILES['h_img']){
+                $data['head_img'] = $this->file_upload($_FILES['h_img']);
+            }
+            if($_FILES['h_qr']){
+                $data['qr_img'] = $this->file_upload($_FILES['h_qr']);
+            }
+            $acc_model = model('account');
+            $res = $acc_model->insert_account($data);
+            if(!$res)
+                $this->error('添加失败，请重新填写公众号信息');
+            else
+                $this->success('添加成功，开始旅行吧~');
         }
         return view('post-step');
     }
@@ -65,7 +74,7 @@ class Account extends Controller
      * 图片上传
      * param file:图片信息   upload_path 上传路径
      * */
-    public function file_upload($file,$root_dir){
+    public function file_upload($file,$root_dir = ''){
         //得到文件名称
         $name = $file['name'];
         $type = strtolower(substr($name,strrpos($name,'.')+1)); //得到文件类型，并且都转化成小写
@@ -80,12 +89,15 @@ class Account extends Controller
             //如果不是通过HTTP POST上传的
             $this->error('图片上传失败，未捕捉到图片~');
         }
-        $root_dir = "D:/now/"; //上传文件的存放路径
-        $upload_path = $root_dir.time().$file['name'];
+        if(empty($root_dir)){
+            $root_dir = __PUBLIC__; //上传文件的存放路径
+            $dir = "/static/account/img/".'wx_'.time().substr($file['name'],strrpos($file['name'],'.'));
+        }
+        $upload_path = $root_dir.$dir;
         //开始移动文件到相应的文件夹
         if(move_uploaded_file($file['tmp_name'],$upload_path)){
 
-            return $upload_path;
+            return $dir;
         }else{
             return false;
         }
