@@ -14,18 +14,25 @@ use think\Db;
 
 class Account extends Controller
 {
-
-    //公众号列表
+    /**
+     * 公众号列表
+     * */
     public function account_list(){
-
+        $acc = model('account');
+        $acc_list = $acc->account_list();
+        $this->assign('acc_list',$acc_list);
         return view('account-list');
     }
-
+    /**
+     * 增加公众号主页
+     * */
     public function account_add(){
 
         return view('account-add');
     }
-    //新增手动公众号
+    /**
+     * 新增手动公众号
+     * */
     public function post_step(){
         if(!empty($_POST)){
             $data['name'] = $_POST['acc_name'];
@@ -50,7 +57,31 @@ class Account extends Controller
         }
         return view('post-step');
     }
+    /**
+     * 公众号停用/开启/删除
+     * */
+    public function acc_save_status(){
+        $id = $_POST['id'];
+        if(empty($id))
+            return exitMsg(202,'非法操作，无法识别的用户~');
+        $del_manage = model('account');
+        $del_res = $del_manage->save_satatus_acc($id);
+        if($del_res)
+            return exitMsg(200,'操作成功~');
+        else
+            return exitMsg(201,'操作失败，请稍后重试~');
+    }
+    /**
+     * 查看公众号详情
+     * */
+    public function account_show(){
 
+        $acc_model = model('account');
+        $acc_detail = $acc_model->account_list($_GET['id']);
+//        print_r($acc_detail);die;
+        $this->assign('acc_detail',$acc_detail);
+        return view('account-show');
+    }
     //新增授权添加公众号
     public function component(){
 
@@ -73,6 +104,7 @@ class Account extends Controller
     /**
      * 图片上传
      * param file:图片信息   upload_path 上传路径
+     * return url
      * */
     public function file_upload($file,$root_dir = ''){
         //得到文件名称

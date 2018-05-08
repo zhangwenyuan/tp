@@ -29,7 +29,7 @@
           </div>
         </div>
     </form>
-    <xblock><button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon">&#xe640;</i>批量删除</button><button class="layui-btn" onclick="member_add('添加用户','member-add.html','600','500')"><i class="layui-icon">&#xe608;</i>添加</button><span class="x-right" style="line-height:40px">共有数据：88 条</span></xblock>
+    <xblock><button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon">&#xe640;</i>批量删除</button><button class="layui-btn" onclick="member_add('添加用户','member-add.html','600','500')"><i class="layui-icon">&#xe608;</i>添加</button></xblock>
     <table class="layui-table">
         <thead>
             <tr>
@@ -41,27 +41,45 @@
             </tr>
         </thead>
         <tbody>
+            {volist name='acc_list' id='vo'}
             <tr>
                 <td class="acc-td">
-                    <img class="acc-img"  src="http://www.tp.com/static/account/img/wx_1525749275.jpg" alt="公众号图片">
+                    <img class="acc-img"  src="{$vo.head_img}" alt="公众号图片">
                     <div class="acc-div">
-                    <u style="cursor:pointer;" onclick="member_show('张三','member-show.html','10001','360','400')">
-                        小明
+                    <u style="cursor:pointer;" onclick="member_show('{$vo.name}','account_show.html','{$vo.acid}','460','500')">
+                        {$vo.name}
                     </u>
-                    <p class="acc-p">类型：认证服务号 <span class="layui-icon acc-icon-success">&#xe616;已接入</span></p>
+                    <p class="acc-p">类型：
+                        {if $vo.level==1}
+                            普通订阅号
+                        {elseif $vo.level==2}
+                            普通服务号
+                        {elseif $vo.level==3}
+                            认证订阅号
+                        {else}
+                            认证服务号
+                        {/if}
+                        <span class="layui-icon acc-icon-success">&#xe616;已接入</span>
+                    </p>
                     </div>
                 </td>
 
-                <td>2017-01-01 11:11:42</td>
+                <td>{$vo.create_time|date="Y-m-d H:i:s"}</td>
                 <td class="td-status">
-                    <span class="layui-btn layui-btn-normal layui-btn-mini">
-                        已启用
-                    </span>
+                    {if $vo.status==1}
+                        <span class="layui-btn layui-btn-normal layui-btn-mini">已启用</span>
+                    {else}
+                        <span class="layui-btn layui-btn-disabled layui-btn-mini">已停用</span>
+                    {/if}
                 </td>
                 <td class="td-manage">
-                    <a style="text-decoration:none" onclick="member_stop(this,'10001')" href="javascript:;" title="停用">
+                    {if $vo.status==1}
+                    <a style="text-decoration:none" onclick="member_stop(this,'{$vo.acid}')" href="javascript:;" title="停用">
                         <i class="layui-icon">&#xe601;</i>
                     </a>
+                    {else}
+                    <a style="text-decoration:none" onClick="member_start(this,'{$vo.acid}')" href="javascript:;" title="启用"><i class="layui-icon">&#xe62f;</i></a>
+                    {/if}
                     <a title="编辑" href="javascript:;" onclick="member_edit('编辑','member-edit.html','4','','510')"
                     class="ml-5" style="text-decoration:none">
                         <i class="layui-icon">&#xe642;</i>
@@ -70,12 +88,13 @@
                     href="javascript:;" title="进入公众号">
                         <i class="layui-icon">&#xe602;</i>
                     </a>
-                    <a title="删除" href="javascript:;" onclick="member_del(this,'1')"
+                    <a title="删除" href="javascript:;" onclick="member_del(this,'{$vo.acid}')"
                     style="text-decoration:none">
                         <i class="layui-icon">&#xe640;</i>
                     </a>
                 </td>
             </tr>
+            {/volist}
         </tbody>
     </table>
 
@@ -144,6 +163,7 @@
     }
     /*用户-查看*/
     function member_show(title,url,id,w,h){
+        url = url+"?id="+id;
         x_admin_show(title,url,w,h);
     }
 
@@ -151,10 +171,23 @@
     function member_stop(obj,id){
         layer.confirm('确认要停用吗？',function(index){
             //发异步把用户状态进行更改
-            $(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" onClick="member_start(this,id)" href="javascript:;" title="启用"><i class="layui-icon">&#xe62f;</i></a>');
-            $(obj).parents("tr").find(".td-status").html('<span class="layui-btn layui-btn-disabled layui-btn-mini">已停用</span>');
-            $(obj).remove();
-            layer.msg('已停用!',{icon: 5,time:1000});
+            $.ajax({
+                type: 'POST',
+                url: "{:url('account/acc_save_status')}",
+                dataType: 'JSON',
+                data: {'id':id,'status':3},
+                success: function (res) { //返回json结果
+                    if(res.status==200){
+                        $(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" onClick="member_start(this,id)" href="javascript:;" title="启用"><i class="layui-icon">&#xe62f;</i></a>');
+                        $(obj).parents("tr").find(".td-status").html('<span class="layui-btn layui-btn-disabled layui-btn-mini">已停用</span>');
+                        $(obj).remove();
+                        layer.msg('已停用!',{icon: 5,time:1000});
+                    }else{
+                        layer.alert(res.msg, {icon: 5})
+
+                    }
+                }
+            });
         });
     }
 
@@ -162,14 +195,28 @@
     function member_start(obj,id){
         layer.confirm('确认要启用吗？',function(index){
             //发异步把用户状态进行更改
-            $(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" onClick="member_stop(this,id)" href="javascript:;" title="停用"><i class="layui-icon">&#xe601;</i></a>');
-            $(obj).parents("tr").find(".td-status").html('<span class="layui-btn layui-btn-normal layui-btn-mini">已启用</span>');
-            $(obj).remove();
-            layer.msg('已启用!',{icon: 6,time:1000});
+            $.ajax({
+                type: 'POST',
+                url: "{:url('account/acc_save_status')}",
+                dataType: 'JSON',
+                data: {'id':id,'status':1},
+                success: function (res) { //返回json结果
+                    if(res.status==200){
+                        $(obj).parents("tr").find(".td-manage").prepend('<a style="text-decoration:none" onClick="member_stop(this,id)" href="javascript:;" title="停用"><i class="layui-icon">&#xe601;</i></a>');
+                        $(obj).parents("tr").find(".td-status").html('<span class="layui-btn layui-btn-normal layui-btn-mini">已启用</span>');
+                        $(obj).remove();
+                        layer.msg('已启用!',{icon: 6,time:1000});
+                    }else{
+                        layer.alert(res.msg, {icon: 5})
+
+                    }
+                }
+            });
         });
     }
     // 用户-编辑
     function member_edit (title,url,id,w,h) {
+        url = url+"?id="+id;
         x_admin_show(title,url,w,h);
     }
     /*密码-修改*/
@@ -180,8 +227,21 @@
     function member_del(obj,id){
         layer.confirm('确认要删除吗？',function(index){
             //发异步删除数据
-            $(obj).parents("tr").remove();
-            layer.msg('已删除!',{icon:1,time:1000});
+            $.ajax({
+                type: 'POST',
+                url: "{:url('account/acc_save_status')}",
+                dataType: 'JSON',
+                data: {'id':id,'status':2},
+                success: function (res) { //返回json结果
+                    if(res.status==200){
+                        $(obj).parents("tr").remove();
+                        layer.msg('公众号已加入回收站~',{icon:1,time:1000});
+                    }else{
+                        layer.alert(res.msg, {icon: 5})
+                    }
+                }
+            });
+
         });
     }
     </script>

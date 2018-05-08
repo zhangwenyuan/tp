@@ -84,7 +84,7 @@ class User extends Model{
     }
 
     /**
-     * 管理员列表
+     * 管理员停用
      * param $id 用户id
      * return true/fasle
      * */
