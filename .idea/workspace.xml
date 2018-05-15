@@ -2,21 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eeb31a10-342a-4fbb-92da-b055d3ff5153" name="默认的" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/admin/controller/Api.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/admin/controller/Common.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/admin/view/account/account-huishou.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/application/const.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/api.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/controller/Account.php" afterPath="$PROJECT_DIR$/application/admin/controller/Account.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/controller/Index.php" afterPath="$PROJECT_DIR$/application/admin/controller/Index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/model/Account.php" afterPath="$PROJECT_DIR$/application/admin/model/Account.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/view/account/account-list.html" afterPath="$PROJECT_DIR$/application/admin/view/account/account-list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/view/account/account-show.html" afterPath="$PROJECT_DIR$/application/admin/view/account/account-show.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/common.php" afterPath="$PROJECT_DIR$/application/common.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/database.php" afterPath="$PROJECT_DIR$/config/database.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/index.php" afterPath="$PROJECT_DIR$/public/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/thinkphp/library/think/Controller.php" afterPath="$PROJECT_DIR$/thinkphp/library/think/Controller.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/admin/controller/Api.php" afterPath="$PROJECT_DIR$/application/admin/controller/Api.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/log.php" afterPath="$PROJECT_DIR$/config/log.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -30,23 +17,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Login.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/admin/controller/Login.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="28" column="14" lean-forward="true" selection-start-line="28" selection-start-column="14" selection-end-line="28" selection-end-column="14" />
-              <folding>
-                <element signature="e#39#55#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Api.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Api.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/admin/controller/Api.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="55" column="29" lean-forward="true" selection-start-line="55" selection-start-column="29" selection-end-line="55" selection-end-column="29" />
+            <state relative-caret-position="419">
+              <caret line="79" column="33" lean-forward="true" selection-start-line="79" selection-start-column="33" selection-end-line="79" selection-end-column="33" />
               <folding>
                 <element signature="e#40#56#0#PHP" expanded="true" />
               </folding>
@@ -54,51 +29,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Account.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/admin/controller/Account.php">
+      <file leaf-file-name="log.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/log.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="42" column="41" lean-forward="true" selection-start-line="42" selection-start-column="41" selection-end-line="42" selection-end-column="41" />
+            <state relative-caret-position="180">
+              <caret line="20" column="43" lean-forward="false" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="43" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="account-huishou.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/admin/view/account/account-huishou.html">
+      <file leaf-file-name="WeiXinAccount.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/extend/wx_account/WeiXinAccount.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="35" column="41" lean-forward="true" selection-start-line="35" selection-start-column="41" selection-end-line="35" selection-end-column="41" />
+            <state relative-caret-position="252">
+              <caret line="212" column="20" lean-forward="false" selection-start-line="212" selection-start-column="20" selection-end-line="212" selection-end-column="20" />
               <folding>
-                <element signature="n#style#0;n#u#0;n#div#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#td#3;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#!!top" expanded="true" />
-                <marker date="1526376676221" expanded="true" signature="4548:4568" ph="..." />
-                <marker date="1526376676221" expanded="true" signature="4654:4662" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="account-show.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/admin/view/account/account-show.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="353">
-              <caret line="33" column="14" lean-forward="true" selection-start-line="33" selection-start-column="14" selection-end-line="33" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="account-list.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/admin/view/account/account-list.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="55" column="45" lean-forward="true" selection-start-line="55" selection-start-column="45" selection-end-line="55" selection-end-column="45" />
-              <folding>
-                <marker date="1526375346704" expanded="true" signature="6924:6944" ph="..." />
-                <marker date="1526375346704" expanded="true" signature="7031:7039" ph="..." />
-                <marker date="1526375346704" expanded="true" signature="7945:7965" ph="..." />
-                <marker date="1526375346704" expanded="true" signature="8051:8059" ph="..." />
+                <marker date="1526374094754" expanded="true" signature="18949:19064" ph="SELECT `key`... ${tablename('account_wechats')}" />
               </folding>
             </state>
           </provider>
@@ -117,8 +64,8 @@
       <file leaf-file-name="WeAccount.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/extend/wx_account/WeAccount.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="397">
-              <caret line="78" column="47" lean-forward="true" selection-start-line="78" selection-start-column="47" selection-end-line="78" selection-end-column="47" />
+            <state relative-caret-position="364">
+              <caret line="112" column="37" lean-forward="true" selection-start-line="112" selection-start-column="37" selection-end-line="112" selection-end-column="37" />
               <folding>
                 <marker date="1526374834070" expanded="true" signature="21109:21210" ph="SELECT modul... " />
                 <marker date="1526374834070" expanded="true" signature="32576:32685" ph="SELECT `fani... ${tablename('mc_mapping_fans')}" />
@@ -126,30 +73,6 @@
                 <marker date="1526374834070" expanded="true" signature="39071:39175" ph="..." />
                 <marker date="1526374834070" expanded="true" signature="39117:39164" ph="{...}" />
                 <marker date="1526374834070" expanded="true" signature="39453:39504" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WeiXinAccount.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/extend/wx_account/WeiXinAccount.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="473">
-              <caret line="32" column="20" lean-forward="false" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="20" />
-              <folding>
-                <marker date="1526374094754" expanded="true" signature="18949:19064" ph="SELECT `key`... ${tablename('account_wechats')}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="common.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/common.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="1" lean-forward="true" selection-start-line="19" selection-start-column="1" selection-end-line="19" selection-end-column="1" />
-              <folding>
-                <element signature="e#6#80#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -166,7 +89,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>del_role</find>
       <find>role_add</find>
       <find>InsertRoleAccess</find>
       <find>SaveRoleAccess</find>
@@ -196,6 +118,7 @@
       <find>var_me</find>
       <find>WeAccount</find>
       <find>account_show</find>
+      <find>WeUtility</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/application</dir>
@@ -208,8 +131,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/application/admin/model/menu.php" />
-        <option value="$PROJECT_DIR$/application/admin/view/index/admin_edit.html" />
         <option value="$PROJECT_DIR$/application/admin/view/index/admin_add.html" />
         <option value="$PROJECT_DIR$/application/admin/view/index/admin_role.html" />
         <option value="$PROJECT_DIR$/application/admin/view/index/role_add.html" />
@@ -255,10 +176,12 @@
         <option value="$PROJECT_DIR$/extend/wx_account/WeiXinAccount.php" />
         <option value="$PROJECT_DIR$/public/aaaaaaaa.txt" />
         <option value="$PROJECT_DIR$/extend/wx_account/WeAccount.php" />
-        <option value="$PROJECT_DIR$/application/admin/controller/Api.php" />
         <option value="$PROJECT_DIR$/application/admin/view/account/account-list.html" />
         <option value="$PROJECT_DIR$/application/admin/view/account/account-show.html" />
         <option value="$PROJECT_DIR$/application/admin/view/account/account-huishou.html" />
+        <option value="$PROJECT_DIR$/extend/cache_redis/Redis.php" />
+        <option value="$PROJECT_DIR$/config/log.php" />
+        <option value="$PROJECT_DIR$/application/admin/controller/Api.php" />
       </list>
     </option>
   </component>
@@ -388,6 +311,11 @@
               <item name="tp" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="public" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
+            <path>
+              <item name="tp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tp" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="thinkphp" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -457,12 +385,12 @@
       <workItem from="1525915818791" duration="146000" />
       <workItem from="1525933452410" duration="4906000" />
       <workItem from="1526009452251" duration="7311000" />
-      <workItem from="1526267633884" duration="14620000" />
+      <workItem from="1526267633884" duration="16848000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="164117000" />
+    <option name="totallyTimeSpent" value="166345000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -499,37 +427,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/static/admin/X-admin/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="210">
-            <caret line="14" column="18" lean-forward="true" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/static/admin/X-admin/lib/bootstrap/css/bootstrap.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="9" lean-forward="true" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/static/admin/X-admin/css/x-admin.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="14" lean-forward="true" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/route/route.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="19" column="2" lean-forward="true" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -694,6 +591,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -831,57 +729,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/extend/wx_account/WeiXinAccount.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="473">
-          <caret line="32" column="20" lean-forward="false" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="20" />
-          <folding>
-            <marker date="1526374094754" expanded="true" signature="18949:19064" ph="SELECT `key`... ${tablename('account_wechats')}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/admin/model/Account.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="54" column="99" lean-forward="true" selection-start-line="54" selection-start-column="20" selection-end-line="54" selection-end-column="99" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/extend/wx_account/WeAccount.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="397">
-          <caret line="78" column="47" lean-forward="true" selection-start-line="78" selection-start-column="47" selection-end-line="78" selection-end-column="47" />
-          <folding>
-            <marker date="1526374834070" expanded="true" signature="21109:21210" ph="SELECT modul... " />
-            <marker date="1526374834070" expanded="true" signature="32576:32685" ph="SELECT `fani... ${tablename('mc_mapping_fans')}" />
-            <marker date="1526374834070" expanded="true" signature="38299:38383" ph="SELECT * FRO... ${tablename('core_paylog')}" />
-            <marker date="1526374834070" expanded="true" signature="39071:39175" ph="..." />
-            <marker date="1526374834070" expanded="true" signature="39117:39164" ph="{...}" />
-            <marker date="1526374834070" expanded="true" signature="39453:39504" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/admin/view/account/account-show.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="353">
-          <caret line="33" column="14" lean-forward="true" selection-start-line="33" selection-start-column="14" selection-end-line="33" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/admin/controller/Api.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="55" column="29" lean-forward="true" selection-start-line="55" selection-start-column="29" selection-end-line="55" selection-end-column="29" />
-          <folding>
-            <element signature="e#40#56#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/date/date.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="244">
@@ -890,10 +737,47 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/thinkphp/library/think/cache/Driver.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="21" column="11" lean-forward="true" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/extend/cache_redis/Redis.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="3" lean-forward="true" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/admin/view/account/account-huishou.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="35" column="41" lean-forward="true" selection-start-line="35" selection-start-column="41" selection-end-line="35" selection-end-column="41" />
+          <folding>
+            <element signature="n#style#0;n#u#0;n#div#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#td#3;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#!!top" expanded="true" />
+            <marker date="1526376676221" expanded="true" signature="4548:4568" ph="..." />
+            <marker date="1526376676221" expanded="true" signature="4654:4662" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/admin/controller/Account.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="177">
           <caret line="42" column="41" lean-forward="true" selection-start-line="42" selection-start-column="41" selection-end-line="42" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/admin/model/Account.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="54" column="99" lean-forward="true" selection-start-line="54" selection-start-column="20" selection-end-line="54" selection-end-column="99" />
           <folding />
         </state>
       </provider>
@@ -911,15 +795,61 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/admin/view/account/account-huishou.html">
+    <entry file="file://$PROJECT_DIR$/application/admin/view/account/account-show.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="35" column="41" lean-forward="true" selection-start-line="35" selection-start-column="41" selection-end-line="35" selection-end-column="41" />
+        <state relative-caret-position="353">
+          <caret line="33" column="14" lean-forward="true" selection-start-line="33" selection-start-column="14" selection-end-line="33" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/standard_3.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="31" column="32" lean-forward="true" selection-start-line="31" selection-start-column="32" selection-end-line="31" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/extend/wx_account/WeiXinAccount.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="212" column="20" lean-forward="false" selection-start-line="212" selection-start-column="20" selection-end-line="212" selection-end-column="20" />
           <folding>
-            <element signature="n#style#0;n#u#0;n#div#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#td#3;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#!!top" expanded="true" />
-            <marker date="1526376676221" expanded="true" signature="4548:4568" ph="..." />
-            <marker date="1526376676221" expanded="true" signature="4654:4662" ph="..." />
+            <marker date="1526374094754" expanded="true" signature="18949:19064" ph="SELECT `key`... ${tablename('account_wechats')}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/extend/wx_account/WeAccount.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="112" column="37" lean-forward="true" selection-start-line="112" selection-start-column="37" selection-end-line="112" selection-end-column="37" />
+          <folding>
+            <marker date="1526374834070" expanded="true" signature="21109:21210" ph="SELECT modul... " />
+            <marker date="1526374834070" expanded="true" signature="32576:32685" ph="SELECT `fani... ${tablename('mc_mapping_fans')}" />
+            <marker date="1526374834070" expanded="true" signature="38299:38383" ph="SELECT * FRO... ${tablename('core_paylog')}" />
+            <marker date="1526374834070" expanded="true" signature="39071:39175" ph="..." />
+            <marker date="1526374834070" expanded="true" signature="39117:39164" ph="{...}" />
+            <marker date="1526374834070" expanded="true" signature="39453:39504" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/log.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="20" column="43" lean-forward="false" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/admin/controller/Api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="419">
+          <caret line="79" column="33" lean-forward="true" selection-start-line="79" selection-start-column="33" selection-end-line="79" selection-end-column="33" />
+          <folding>
+            <element signature="e#40#56#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

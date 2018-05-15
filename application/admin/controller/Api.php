@@ -4,6 +4,7 @@ namespace app\admin\controller;
 
 use think\Build;
 use think\Controller;
+use think\facade\Log;
 use think\model;
 use think\Db;
 use wx_account\WeAccount;
@@ -66,6 +67,20 @@ class Api extends Controller{
             #  后续需调整  不在session里进行读取
             Db::name('account_wechats')->where('acid',$_SESSION['account']['acid'])->update(['is_connect' => 1]);
             exit(htmlspecialchars($_GET['echostr']));
+        }
+
+        if(strtolower($_SERVER['REQUEST_METHOD']) == 'post') {
+            $postStr = file_get_contents('php://input');
+            if(!empty($_GET['encrypt_type']) && $_GET['encrypt_type'] == 'aes') {
+                $postStr = $this->account->decryptMsg($postStr);
+            }
+            $message = $this->account->parse($postStr);
+            Log::write($message,'trace');
+            $this->message = $message;
+            if(empty($message)) {
+                Log::write('Request Failed','waring');
+                exit('Request Failed');
+            }
         }
     }
 
