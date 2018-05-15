@@ -35,6 +35,16 @@ class Account extends Model{
     }
 
     /**
+     * del_account
+     * */
+    public function del_account($id){
+        $del_res = Db::name('account_wechats')->where('acid',$id)->delete();
+        if($del_res)
+            return true;
+        else
+            return false;
+    }
+    /**
      * 公众号停用/启用
      * param $id 用户id
      * return true/fasle
@@ -47,5 +57,30 @@ class Account extends Model{
             return true;
         else
             return false;
+    }
+
+    /**
+     * 修改公众号信息
+     * param  $data：需要修改的信息   $id：公众号id
+     * return true/false
+     * */
+    public function saveaccount($data,$id){
+
+        $save_res = Db::name('account_wechats')->where('acid',$id)->update($data);
+        if($save_res)
+            return true;
+        else
+            return false;
+    }
+
+    /**
+     * 公众号回收站列表
+     * */
+    public function account_huishou(){
+//        $where = array();
+//        if(!empty($id))
+//            $where['acid'] = $id;
+        $acclist = Db::name('account_wechats')->where('status',2)->select();
+        return $acclist;
     }
 }

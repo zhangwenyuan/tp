@@ -7,6 +7,15 @@ use think\Db;
 
 class Index extends Controller
 {
+    public function __construct()
+    {
+        $this->initialize();
+    }
+
+    public function initialize(){
+
+    }
+
     public function index()
     {
 

@@ -13,6 +13,7 @@ namespace think;
 
 use think\exception\ValidateException;
 use traits\controller\Jump;
+use think\Request;
 
 class Controller
 {
@@ -79,7 +80,15 @@ class Controller
 
     // 初始化
     protected function initialize()
-    {}
+    {
+        $no_check = array("login","index");
+
+        //判断用户是否已经登录
+        if (!isset($_SESSION['userinfo']) && !in_array(request()->action(),$no_check)) {
+
+            $this->error('对不起,您还没有登录!请先登录再进行浏览', url('admin/index/index'), 1);
+        }
+    }
 
     /**
      * 前置操作

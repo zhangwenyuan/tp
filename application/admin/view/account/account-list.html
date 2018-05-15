@@ -3,9 +3,8 @@
 <link rel="stylesheet" href="/static/account/css/account.css" media="all">
 <div class="x-nav">
     <span class="layui-breadcrumb">
-      <a><cite>首页</cite></a>
-      <a><cite>会员管理</cite></a>
-      <a><cite>会员列表</cite></a>
+      <a><cite>公众号管理</cite></a>
+      <a><cite>公众号列表</cite></a>
     </span>
     <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right"  href="javascript:location.replace(location.href);" title="刷新"><i class="layui-icon" style="line-height:30px">ဂ</i></a>
 </div>
@@ -29,7 +28,7 @@
           </div>
         </div>
     </form>
-    <xblock><button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon">&#xe640;</i>批量删除</button><button class="layui-btn" onclick="member_add('添加用户','member-add.html','600','500')"><i class="layui-icon">&#xe608;</i>添加</button></xblock>
+    <xblock><button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon">&#xe640;</i>批量删除</button><!--<a class="layui-btn" href="account_add"><i class="layui-icon">&#xe608;</i>添加</a>--></xblock>
     <table class="layui-table">
         <thead>
             <tr>
@@ -59,7 +58,11 @@
                         {else}
                             认证服务号
                         {/if}
+                        {if $vo.is_connect==1}
                         <span class="layui-icon acc-icon-success">&#xe616;已接入</span>
+                        {else}
+                        <span class="layui-icon acc-icon-error">&#xe617;未接入</span>
+                        {/if}
                     </p>
                     </div>
                 </td>
@@ -80,7 +83,7 @@
                     {else}
                     <a style="text-decoration:none" onClick="member_start(this,'{$vo.acid}')" href="javascript:;" title="启用"><i class="layui-icon">&#xe62f;</i></a>
                     {/if}
-                    <a title="编辑" href="javascript:;" onclick="member_edit('编辑','member-edit.html','4','','510')"
+                    <a title="编辑" href="javascript:;" onclick="member_edit('编辑','account_edit.html','{$vo.acid}','','510')"
                     class="ml-5" style="text-decoration:none">
                         <i class="layui-icon">&#xe642;</i>
                     </a>
@@ -158,8 +161,10 @@
         });
      }
      /*用户-添加*/
-    function member_add(title,url,w,h){
-        x_admin_show(title,url,w,h);
+    function member_add(title,url){
+
+        window.location.href= url;
+//        x_admin_show(title,url,w,h);
     }
     /*用户-查看*/
     function member_show(title,url,id,w,h){

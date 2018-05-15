@@ -41,7 +41,10 @@ class Account extends Controller
             $data['original'] = $_POST['title'];
             $data['level'] = $_POST['level'];
             $data['key'] = $_POST['key'];
+            $data['token'] = random(32);
+            $data['encodingaeskey'] = random(43);
             $data['secret'] = $_POST['secret'];
+            $_data['create_time'] = time();
             if($_FILES['h_img']){
                 $data['head_img'] = $this->file_upload($_FILES['h_img']);
             }
@@ -77,10 +80,39 @@ class Account extends Controller
     public function account_show(){
 
         $acc_model = model('account');
-        $acc_detail = $acc_model->account_list($_GET['id']);
-//        print_r($acc_detail);die;
+        $acc_detail = $acc_model->account_list($_REQUEST['id']);
+
         $this->assign('acc_detail',$acc_detail);
         return view('account-show');
+    }
+    /**
+     * 公众号编辑
+     * */
+    public function account_edit(){
+        $saveid = input('id');
+        $accmodel = model('account');
+        if(!empty($_POST['saveid'])){
+            $_data = array();
+            $_data['name'] = $_POST['acc_name'];
+            $_data['desc'] = $_POST['desc'];
+            $_data['account'] = $_POST['account'];
+            $_data['original'] = $_POST['title'];
+            $_data['level'] = $_POST['level'];
+            $_data['key'] = $_POST['key'];
+            $_data['secret'] = $_POST['secret'];
+            $_data['create_time'] = time();
+            $res = $accmodel->saveaccount($_data,$_POST['saveid']);
+
+            if($res || $res==0){#当数据没改动的情况下(update 将返回0)
+
+                return exitMsg(200,'修改成功~');
+            }else{
+                return exitMsg(201,'修改失败，请重新提交~');
+            }
+        }
+        $accdetail = $accmodel->account_list($saveid);
+        $this->assign('accdetail',$accdetail);
+        return view('account-edit');
     }
     //新增授权添加公众号
     public function component(){
@@ -88,12 +120,23 @@ class Account extends Controller
     }
 
     //删除公众号
-    public function delete(){
-
+    public function acc_del(){
+        $id = $_POST['id'];
+        if(empty($id))
+            return exitMsg(202,'非法操作，无法识别的公众号~');
+        $del_manage = model('account');
+        $del_res = $del_manage->del_account($id);
+        if($del_res)
+            return exitMsg(200,'删除成功~');
+        else
+            return exitMsg(201,'删除失败，请稍后重试~');
     }
     //公众号回收站
     public function acc_recyclebin(){
-        echo "公众号回收站";die;
+        $accmodel = model('account');
+        $acc_list = $accmodel->account_huishou();
+        $this->assign('acc_list',$acc_list);
+        return view('account-huishou');
     }
 
     //微信开放平台

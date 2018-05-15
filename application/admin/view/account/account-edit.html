@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+{include file="public/common" /}
+<div class="x-body">
+    <form class="layui-form">
+        <input type="hidden" name="saveid" value="{$accdetail[0]['acid']}">
+        <div class="layui-form-item">
+            <label class="layui-form-label">
+                <span class='x-red'>*</span>公众号名称
+            </label>
+            <div class="layui-input-block">
+                <input type="text" name="acc_name" autocomplete="off" placeholder="填写公众号的账号名称"
+                       class="layui-input" value="{$accdetail[0]['name']}">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">
+                <span class='x-red'>*</span>描述
+            </label>
+            <div class="layui-input-block">
+                <input type="text" name="desc" autocomplete="off" placeholder="用于说明此公众号的功能及用途"
+                       class="layui-input" value="{$accdetail[0]['desc']}">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">
+                <span class='x-red'>*</span>公众号账号
+            </label>
+            <div class="layui-input-block">
+                <input type="text" name="account" autocomplete="off" placeholder="填写公众号的账号,一般为英文账号"
+                       class="layui-input" value="{$accdetail[0]['account']}">
+            </div>
+        </div>
+
+        <div class="layui-form-item">
+            <label class="layui-form-label">
+                <span class='x-red'>*</span>原始ID
+            </label>
+            <div class="layui-input-block">
+                <input type="text" name="title" autocomplete="off" placeholder="原始ID不能修改,请谨慎填写"
+                       class="layui-input" value="{$accdetail[0]['original']}">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">
+                <span class='x-red'>*</span>类型
+            </label>
+            <div class="layui-input-block">
+                <select name='level'>
+                    <option {if $accdetail[0]['level'] ==1} selected {/if} value="1">普通订阅号</option>
+                    <option {if $accdetail[0]['level'] ==2} selected {/if} value="2">普通服务号</option>
+                    <option {if $accdetail[0]['level'] ==3} selected {/if} value="3">认证订阅号</option>
+                    <option {if $accdetail[0]['level'] ==4} selected {/if} value="4">认证服务号/认证媒体/政府订阅号</option>
+                </select>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">
+                <span class='x-red'>*</span>AppId
+            </label>
+            <div class="layui-input-block">
+                <input type="text" name="key" autocomplete="off" placeholder="请填写微信公众平台后台的AppId"
+                       class="layui-input" value="{$accdetail[0]['key']}">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">
+                <span class='x-red'>*</span>AppSecret
+            </label>
+            <div class="layui-input-block">
+                <input type="text" name="secret" autocomplete="off" placeholder="请填写微信公众平台后台的AppSecret"
+                       class="layui-input" value="{$accdetail[0]['secret']}">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">
+                <span class='x-red'>*</span>头像
+            </label>
+            <div class="layui-input-block">
+                <img src="{$accdetail[0]['head_img']}" width="100px;" height="70px;">
+                <!--<input type="file" name="h_img" class="layui-input" value="{$accdetail[0]['head_img']}">-->
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">
+                <span class='x-red'>*</span>二维码
+            </label>
+            <div class="layui-input-block">
+                <img src="{$accdetail[0]['qr_img']}" width="100px;" height="70px;">
+                <!--<input type="file" name="h_qr" class="layui-input" value="{$accdetail[0]['qr_img']}">-->
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label for="L_sign" class="layui-form-label">
+            </label>
+            <button class="layui-btn" key="set-mine" lay-filter="save" lay-submit>
+                保存
+            </button>
+        </div>
+    </form>
+</div>
+<script>
+    layui.use(['form','layer'], function(){
+        $ = layui.jquery;
+      var form = layui.form()
+      ,layer = layui.layer;
+
+      //自定义验证规则
+       form.verify({
+           acc_name: function(value){
+           if(value.length < 5){
+             return '昵称至少得5个字符啊';
+           }
+         }
+         ,desc: function(value){
+               if(value ==''){
+                   return '描述不能为空';
+               }
+           }
+       });
+      //监听提交
+      form.on('submit(save)', function(data){
+          //发异步，把数据提交给php
+          $.ajax({
+              type: 'POST',
+              url: "{:url('account/account_edit')}",
+              dataType: 'JSON',
+              data: data.field,
+              success: function (res) { //返回json结果
+                  if(res.status==200){
+                      layer.alert(res.msg, {icon: 6},function () {
+                          // 获得frame索引
+                          var index = parent.layer.getFrameIndex(window.name);
+                          //关闭当前frame
+                          parent.layer.close(index);
+                          window.parent.location.reload();
+                      });
+                  }else{
+                      layer.alert(res.msg, {icon: 5})
+                  }
+              }
+          });
+
+          return false;
+      });
+
+
+
+
+    });
+</script>
