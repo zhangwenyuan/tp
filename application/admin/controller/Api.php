@@ -7,6 +7,7 @@ use think\Controller;
 use think\facade\Log;
 use think\model;
 use think\Db;
+use think\Request;
 use wx_account\WeAccount;
 
 

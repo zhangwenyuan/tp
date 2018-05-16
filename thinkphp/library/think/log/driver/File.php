@@ -75,6 +75,7 @@ class File
         }
 
         $path = dirname($destination);
+
         !is_dir($path) && mkdir($path, 0755, true);
 
         $info = '';
