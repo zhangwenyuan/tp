@@ -76,12 +76,13 @@ class Api extends Controller{
                 $postStr = $this->account->decryptMsg($postStr);
             }
             $message = $this->account->parse($postStr);
-            Log::write($message,'trace');
+
             $this->message = $message;
             if(empty($message)) {
-                Log::write('Request Failed','waring');
+
                 exit('Request Failed');
             }
+            $_SESSION['openid'] = $message['from'];
         }
     }
 
