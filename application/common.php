@@ -76,3 +76,62 @@ function is_error($data) {
         return true;
     }
 }
+
+function array2xml($arr, $level = 1) {
+    $s = $level == 1 ? "<xml>" : '';
+    foreach ($arr as $tagname => $value) {
+        if (is_numeric($tagname)) {
+            $tagname = $value['TagName'];
+            unset($value['TagName']);
+        }
+        if (!is_array($value)) {
+            $s .= "<{$tagname}>" . (!is_numeric($value) ? '<![CDATA[' : '') . $value . (!is_numeric($value) ? ']]>' : '') . "</{$tagname}>";
+        } else {
+            $s .= "<{$tagname}>" . array2xml($value, $level + 1) . "</{$tagname}>";
+        }
+    }
+    $s = preg_replace("/([\x01-\x08\x0b-\x0c\x0e-\x1f])+/", ' ', $s);
+    return $level == 1 ? $s . "</xml>" : $s;
+}
+
+function xml2array($xml) {
+    if (empty($xml)) {
+        return array();
+    }
+    $result = array();
+    $xmlobj = isimplexml_load_string($xml, 'SimpleXMLElement', LIBXML_NOCDATA);
+    if($xmlobj instanceof SimpleXMLElement) {
+        $result = json_decode(json_encode($xmlobj), true);
+        if (is_array($result)) {
+            return $result;
+        } else {
+            return '';
+        }
+    } else {
+        return $result;
+    }
+}
+
+function iarray_change_key_case($array, $case = CASE_LOWER){
+    if (!is_array($array) || empty($array)){
+        return array();
+    }
+    $array = array_change_key_case($array, $case);
+    foreach ($array as $key => $value){
+        if (empty($value) && is_array($value)) {
+            $array[$key] = '';
+        }
+        if (!empty($value) && is_array($value)) {
+            $array[$key] = iarray_change_key_case($value, $case);
+        }
+    }
+    return $array;
+}
+
+function isimplexml_load_string($string, $class_name = 'SimpleXMLElement', $options = 0, $ns = '', $is_prefix = false) {
+    libxml_disable_entity_loader(true);
+    if (preg_match('/(\<\!DOCTYPE|\<\!ENTITY)/i', $string)) {
+        return false;
+    }
+    return simplexml_load_string($string, $class_name, $options, $ns, $is_prefix);
+}

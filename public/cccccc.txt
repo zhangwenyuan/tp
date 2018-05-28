@@ -1,0 +1,16 @@
+Array
+(
+    [tousername] => gh_2801d9a78927
+    [fromusername] => osqNRwnbzrh1NHUpUmtKvkBUgHe4
+    [createtime] => 1526546366
+    [msgtype] => text
+    [content] => 888885
+    [msgid] => 6556466718244124017
+    [from] => osqNRwnbzrh1NHUpUmtKvkBUgHe4
+    [to] => gh_2801d9a78927
+    [time] => 1526546366
+    [type] => text
+    [event] => 
+    [redirection] => 
+    [source] => 
+)

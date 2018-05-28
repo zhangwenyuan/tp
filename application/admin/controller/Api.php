@@ -5,6 +5,7 @@ namespace app\admin\controller;
 use think\Build;
 use think\Controller;
 use think\facade\Log;
+use think\Loader;
 use think\model;
 use think\Db;
 use think\Request;
@@ -56,7 +57,6 @@ class Api extends Controller{
     }
 
     public function start() {
-
         if(empty($this->account)) {
             exit('Miss Account.');
         }
@@ -72,17 +72,69 @@ class Api extends Controller{
 
         if(strtolower($_SERVER['REQUEST_METHOD']) == 'post') {
             $postStr = file_get_contents('php://input');
+
             if(!empty($_GET['encrypt_type']) && $_GET['encrypt_type'] == 'aes') {
                 $postStr = $this->account->decryptMsg($postStr);
             }
             $message = $this->account->parse($postStr);
 
             $this->message = $message;
+
             if(empty($message)) {
 
                 exit('Request Failed');
             }
             $_SESSION['openid'] = $message['from'];
+//            $this->booking($message);
+//            if($message['event'] == 'unsubscribe') {
+//                #如果是取消关注事件 则不用进行其他的逻辑处理 直接调用
+//                $this->receive(array(), array(), array());
+//                exit();
+//            }
+
+            $respon['FromUserName'] = $message['to'];
+            $respon['ToUserName'] = $message['from'];
+            $respon['MsgType'] = "text";
+            $respon['Content'] = "系统目前正在研发中！";
+            $resp = $this->account->response($respon);
+            print_r($resp);die;
+        }
+    }
+
+    private function receive($par, $keyword, $response) {
+        global $_W;
+        fastcgi_finish_request();
+        $subscribe = cache_load('module_receive_enable');
+        $modules = uni_modules();
+        $obj = WeUtility::createModuleReceiver('core');
+        $obj->message = $this->message;
+        $obj->params = $par;
+        $obj->response = $response;
+        $obj->keyword = $keyword;
+        $obj->module = 'core';
+        $obj->uniacid = $_W['uniacid'];
+        $obj->acid = $_W['acid'];
+        if(method_exists($obj, 'receive')) {
+            @$obj->receive();
+        }
+        load()->func('communication');
+        if (empty($subscribe[$this->message['type']])) {
+            $subscribe[$this->message['type']] = $subscribe[$this->message['event']];
+        }
+        if (!empty($subscribe[$this->message['type']])) {
+            foreach ($subscribe[$this->message['type']] as $modulename) {
+                $params = array(
+                    'i' => $GLOBALS['uniacid'],
+                    'modulename' => $modulename,
+                    'request' => json_encode($par),
+                    'response' => json_encode($response),
+                    'message' => json_encode($this->message),
+                );
+                $response = ihttp_request(wurl('utility/subscribe/receive'), $params, array(), 10);
+                if (is_error($response) && $response['errno'] == '7') {
+                    $response = ihttp_request($_W['siteroot'] . 'web/' . wurl('utility/subscribe/receive'), $params, array(), 10);
+                }
+            }
         }
     }
 
@@ -124,6 +176,32 @@ class Api extends Controller{
             $resp = $postStr;
         }
         exit($resp);
+    }
+
+    private function booking($message) {
+        if ($message['event'] == 'unsubscribe' || $message['event'] == 'subscribe') {
+            #  当用户是关注或者取消关注时记录 ，方便记录今日指标（eg: 新关注|取消关注|净增关注| ）
+        }
+        # 更新 || 补全粉丝信息
+        //$fans = mc_fansinfo($message['from']);
+        if(!empty($fans)) {
+            if ($message['event'] == 'unsubscribe') {
+                # 取消关注的情况下执行的流程
+                # .......
+            } elseif ($message['event'] != 'ShakearoundUserShake' && $message['type'] != 'trace') {
+                #
+            }
+        } else {
+            if ($message['event'] == 'subscribe' || $message['type'] == 'text' || $message['type'] == 'image') {
+//                load()->model('mc');
+//                $force_init_member = false;
+//                if (!isset($setting['passport']) || empty($setting['passport']['focusreg'])) {
+//                    $force_init_member = true;
+//                }
+                $model = model('mcmodel');
+                $model->mc_init_fans_info($message['from']);
+            }
+        }
     }
 
 }

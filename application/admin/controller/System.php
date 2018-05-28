@@ -11,6 +11,18 @@ use think\Controller;
 
 class System extends Controller{
 
+    public function sys_emulator(){
+        global $_W;
+//        $_W['']
+
+        $development = 1;
+//        $accounts = uni_owned(0, false);
+
+        $this->assign('development',$development);
+
+        return view('sys-emulator');
+    }
+
     //系统设计
     public function sys_index(){
 
