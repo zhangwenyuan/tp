@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+{include file="public/common" /}
+<body>
+<div class="x-nav">
+            <span class="layui-breadcrumb">
+              <a><cite>首页</cite></a>
+              <a><cite>微信功能</cite></a>
+              <a><cite>自动回复</cite></a>
+            </span>
+    <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right"  href="javascript:location.replace(location.href);" title="刷新"><i class="layui-icon" style="line-height:30px">ဂ</i></a>
+</div>
+<div class="x-body">
+    <div class="layui-tab layui-tab-brief" lay-filter="docDemoTabBrief">
+        <ul class="layui-tab-title">
+            <li class="layui-this">列表</li>
+            <li>关键词自动回复</li>
+            <li>默认回复</li>
+            <li>首次访问自动回复</li>
+        </ul>
+        <div class="layui-tab-content">
+            <div class="layui-tab-item layui-show">
+                <table class="layui-table">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>关键词</th>
+                        <th>回复内容</th>
+                        <th>描述</th>
+                        <th>更新时间</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {volist name='reply_list' id='vo'}
+                    <tr>
+                        <td>{$vo.id}</td>
+                        <td> {$vo.keyword}</td>
+                        <td >{$vo.content}</td>
+                        <td >{$vo.desc}</td>
+                        <td >{$vo.create_time|date="Y-m-d H:i:s"}</td>
+                        <td class="td-manage">
+                            <a title="删除" href="javascript:;" onclick="reply_del(this,'{$vo.id}')"
+                               style="text-decoration:none">
+                                <i class="layui-icon">&#xe640;</i>
+                            </a>
+                        </td>
+                    </tr>
+                    {/volist}
+                    </tbody>
+                </table>
+            </div>
+            <div class="layui-tab-item">
+                <form class="layui-form layui-form-pane" action="">
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">
+                            <span class='x-red'>*</span>关键字
+                        </label>
+                        <div class="layui-input-block">
+                            <input type="text" name="keyword" autocomplete="off" placeholder="控制在25个字、50个字节以内"
+                                   class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">
+                            <span class='x-red'>*</span>回复文字
+                        </label>
+                        <div class="layui-input-block">
+                            <input type="text" name="content" autocomplete="off" placeholder="5个左右,8汉字以内,用英文,隔开"
+                                   class="layui-input">
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">
+                            <span class='x-red'>*</span>描述
+                        </label>
+                        <div class="layui-input-block">
+                            <input type="text" name="desc" autocomplete="off" placeholder="空制在80个汉字，160个字符以内"
+                                   class="layui-input">
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <button class="layui-btn" lay-submit="" lay-filter="*">
+                            保存
+                        </button>
+                    </div>
+                </form>
+                <div style="height:100px;"></div>
+            </div>
+            <div class="layui-tab-item">
+                <form class="layui-form layui-form-pane" action="">
+                    <div class="layui-form-item layui-form-text">
+                        <label class="layui-form-label">
+                            <span class='x-red'>*</span>默认回复
+                        </label>
+                        <input type="hidden" name="keyword" value="moren">
+                        <input type="hidden" name="desc" value="默认回复">
+                        <div class="layui-input-block">
+                            <textarea name="content" placeholder="请输入内容" class="layui-textarea"></textarea>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <button class="layui-btn" lay-submit="" lay-filter="*">
+                            保存
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="layui-tab-item">
+                <form class="layui-form layui-form-pane" action="">
+                    <div class="layui-form-item layui-form-text">
+                        <label class="layui-form-label">
+                            <span class='x-red'>*</span>首次访问自动回复
+                        </label>
+                        <input type="hidden" name="keyword" value="sc_reply">
+                        <input type="hidden" name="desc" value="首次访问自动回复">
+                        <div class="layui-input-block">
+                            <textarea name="content" placeholder="请输入内容" class="layui-textarea"></textarea>
+                        </div>
+                    </div>
+                    <div class="layui-form-item">
+                        <button class="layui-btn" lay-submit="" lay-filter="*">
+                            保存
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script>
+    layui.use(['element','layer','form'], function(){
+        $ = layui.jquery;//jquery
+        lement = layui.element();//面包导航
+        layer = layui.layer;//弹出层
+        form = layui.form()
+
+        //监听提交
+        form.on('submit(*)', function(data){
+            console.log(data);
+            $.ajax({
+                type: 'POST',
+                url: "{:url('platform/sub_reply')}",
+                dataType: 'JSON',
+                data: data.field,
+                success: function (res) { //返回json结果
+                    if(res.status==200){
+                        layer.alert(res.msg, {icon: 6},function () {
+                            // 获得frame索引
+                            var index = parent.layer.getFrameIndex(window.name);
+                            //关闭当前frame
+                            window.parent.location.reload();
+                        });
+
+                    }else{
+                        layer.alert(res.msg, {icon: 5})
+
+                    }
+                }
+            });
+            //发异步，把数据提交给php
+//            layer.alert("保存成功", {icon: 6});
+            return false;
+        });
+
+    })
+    /*用户-删除*/
+    function reply_del(obj,id){
+        layer.confirm('确认要删除吗？',function(index){
+            //发异步删除数据
+            $.ajax({
+                type: 'POST',
+                url: "{:url('platform/reply_del')}",
+                dataType: 'JSON',
+                data: {'id':id},
+                success: function (res) { //返回json结果
+                    if(res.status==200){
+                        $(obj).parents("tr").remove();
+                        layer.msg('关键词删除成功~',{icon:1,time:1000});
+                    }else{
+                        layer.alert(res.msg, {icon: 5})
+                    }
+                }
+            });
+
+        });
+    }
+</script>
+</body>
